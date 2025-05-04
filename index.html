@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dadya Petya Site</title>
+  <meta charset="UTF-8">
+  <title>Дяде Пете</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Dadya Petya's Site</h1>
-    </header>
-    <main>
-        <p>This is the main content of the page.</p>
-        <audio controls>
-            <source src="dyadya_comeback.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </main>
-    <footer>
-        <p>&copy; 2025 Dadya Petya. All rights reserved.</p>
-    </footer>
+
+  <div class="hero-section">
+    <h1 class="title">Легендарный сайт - дрочу дяде Пете точка пенис</h1>
+    <button class="player-button" onclick="togglePlay()">▶</button>
+    <audio id="audio" src="dyadya_comeback.mp3"></audio>
+  </div>
+
+  <div class="carousel-section">
+    <h2 class="carousel-title">Дикие небритые обезьяны</h2>
+    <div class="carousel">
+      <img src="makaka.jpg" alt="Image 1">
+      <img src="makaka.jpg" alt="Image 2">
+      <img src="makaka.jpg" alt="Image 3">
+      <img src="makaka.jpg" alt="Image 4">
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById("audio");
+    const button = document.querySelector(".player-button");
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        button.textContent = '⏸';
+      } else {
+        audio.pause();
+        button.textContent = '▶';
+      }
+    }
+
+    audio.addEventListener('ended', () => {
+      button.textContent = '▶';
+    });
+  </script>
+
 </body>
 </html>
