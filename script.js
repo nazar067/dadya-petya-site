@@ -3,6 +3,7 @@ function togglePlay(audioName) {
   const targetAudio = audioElements.find(a => a.id === audioName);
   if (!targetAudio) return;
 
+  // Остановить все остальные
   audioElements.forEach(audio => {
     if (audio !== targetAudio) {
       audio.pause();
@@ -14,13 +15,31 @@ function togglePlay(audioName) {
                  document.querySelector(`button[onclick*="${audioName}"]`);
 
   if (targetAudio.paused) {
-    targetAudio.play();
+    // Фикс: ждать загрузки перед проигрыванием
+    const tryPlay = () => {
+      const playPromise = targetAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.warn("Ошибка воспроизведения:", error);
+        });
+      }
+    };
+
+    // Если metadata уже загружены — играть сразу
+    if (targetAudio.readyState >= 2) {
+      tryPlay();
+    } else {
+      // Иначе дождаться, пока файл будет готов
+      targetAudio.addEventListener('canplaythrough', tryPlay, { once: true });
+    }
+
     if (button) button.textContent = '⏸';
   } else {
     targetAudio.pause();
     if (button) button.textContent = '▶';
   }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const audioElements = Array.from(document.querySelectorAll('audio'));
