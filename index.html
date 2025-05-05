@@ -11,11 +11,45 @@
 
   <div class="hero-section">
     <h1 class="title">Легендарный сайт - дрочу дяде Пете точка пенис</h1>
-    <button class="player-button" onclick="togglePlay()">▶</button>
-    <audio id="audio" src="dyadya_comeback.mp3"></audio>
+    <button class="player-button" onclick="togglePlay('audio')">▶</button>
+    <audio id="audio" src="music/dyadya_comeback.mp3"></audio>
+    <div class="scroll-down">&#8595;</div>
   </div>
+  
+  <div class="toggle-buttons">
+    <button id="show-photos" class="toggle-button active">Сотни фотографий</button>
+    <button id="show-audio" class="toggle-button">Аудио библиотека</button>
+  </div>
+  
+  <div id="audio-section" class="content-section" style="display: none;">
+    <div class="custom-audio-player">
+      <h1>Легендарная реклама</h1>
+      <button class="player-button" onclick="togglePlay('legend_reklama')">▶</button>
+      <audio id="legend_reklama" src="music/dyadya_comeback.mp3"></audio>
 
-  <div class="carousel-section">
+      <h1>Запрещенное порно</h1>
+      <button class="player-button" onclick="togglePlay('banned')">▶</button>
+      <audio id="banned" src="music/banned.mp3"></audio>
+
+      <h1>Реклама порносайта</h1>
+      <button class="player-button" onclick="togglePlay('reklama_pornsite')">▶</button>
+      <audio id="reklama_pornsite" src="music/reklama_pornosajta.mp3"></audio>
+
+      <h1>Два бидона</h1>
+      <button class="player-button" onclick="togglePlay('two_bidon')">▶</button>
+      <audio id="two_bidon" src="music/DvaBidona.mp3"></audio>
+
+      <h1>Я приду когда зацветет весна</h1>
+      <button class="player-button" onclick="togglePlay('spring')">▶</button>
+      <audio id="spring" src="music/gitler_sad.mp3"></audio>
+
+      <h1>Лучший друг</h1>
+      <button class="player-button" onclick="togglePlay('best_friend')">▶</button>
+      <audio id="best_friend" src="music/BestFriend.mp3"></audio>
+    </div>
+  </div>
+  
+  <div id="carousel-section" class="carousel-section content-section">
     <h2 class="carousel-title">Дикие небритые обезьяны</h2>
     <div class="carousel">
       <img src="makaka.jpg" alt="Image 1">
@@ -25,24 +59,12 @@
     </div>
   </div>
 
-  <script>
-    const audio = document.getElementById("audio");
-    const button = document.querySelector(".player-button");
+  <footer class="footer">
+    <p>&copy; 2025 Dyadya Petya. Любви все возрасты покорны.</p>
+    <p><a href="https://mambl.net/" target="_blank">Mambl.net</a> | <a href="#">Privacy Policy</a></p>
+  </footer>  
 
-    function togglePlay() {
-      if (audio.paused) {
-        audio.play();
-        button.textContent = '⏸';
-      } else {
-        audio.pause();
-        button.textContent = '▶';
-      }
-    }
-
-    audio.addEventListener('ended', () => {
-      button.textContent = '▶';
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

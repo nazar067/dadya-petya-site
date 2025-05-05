@@ -12,7 +12,8 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
+    position: relative; /* Нужно для стрелки */
+  }  
   
   .title {
     font-family: 'Montserrat', sans-serif;
@@ -69,5 +70,90 @@ body {
     scroll-snap-align: start;
     flex-shrink: 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .scroll-down {
+    position: absolute;
+    bottom: 20px;
+    font-size: 128px;
+    animation: blink 1.2s infinite;
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }  
+  
+  .footer {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 20px 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .toggle-buttons {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .toggle-button {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #764ba2;
+    background-color: white;
+    color: #764ba2;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .toggle-button.active,
+  .toggle-button:hover {
+    background-color: #764ba2;
+    color: white;
+  }
+  
+  .content-section {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .custom-audio-player .player-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #764ba2;
+    color: white;
+    border: none;
+    font-size: 48px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+  }
+  
+  .custom-audio-player .player-button:hover {
+    transform: scale(1.1);
+  }
+  
+
+  @keyframes blink {
+    0%, 100% { opacity: 0.2; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(10px); }
   }
   
